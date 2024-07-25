@@ -35,8 +35,6 @@ class InspectableWebContentsView {
     return inspectable_web_contents_;
   }
 
-  views::WebView* contents_web_view() const { return contents_web_view_; }
-
   // The delegate manages its own life.
   void SetDelegate(InspectableWebContentsViewDelegate* delegate) {
     delegate_ = delegate;
@@ -50,6 +48,7 @@ class InspectableWebContentsView {
   virtual gfx::NativeView GetNativeView() const = 0;
 #endif
 
+  // virtual views::WebView* contents_web_view() = 0;
   virtual void ShowDevTools(bool activate) = 0;
   // Hide the DevTools view.
   virtual void CloseDevTools() = 0;

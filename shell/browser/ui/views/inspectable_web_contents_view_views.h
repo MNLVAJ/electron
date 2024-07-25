@@ -29,6 +29,9 @@ class InspectableWebContentsViewViews : public InspectableWebContentsView,
       InspectableWebContents* inspectable_web_contents);
   ~InspectableWebContentsViewViews() override;
 
+  views::WebView* contents_web_view() const { return contents_web_view_; }
+  override;
+
   // InspectableWebContentsView:
   views::View* GetView() override;
   void ShowDevTools(bool activate) override;
@@ -47,7 +50,8 @@ class InspectableWebContentsViewViews : public InspectableWebContentsView,
  private:
   std::unique_ptr<views::Widget> devtools_window_;
   raw_ptr<views::WebView> devtools_window_web_view_ = nullptr;
-  raw_ptr<views::View> contents_web_view_ = nullptr;
+  raw_ptr<views::WebView> contents_web_view_ = nullptr;
+  raw_ptr<views::View> contents_view_ = nullptr;
   raw_ptr<views::WebView> devtools_web_view_ = nullptr;
 
   DevToolsContentsResizingStrategy strategy_;
